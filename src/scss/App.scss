@@ -1,0 +1,87 @@
+@import 'normalize';
+@import 'vars';
+@import 'mixins';
+
+@import './components/board';
+@import './components/card';
+@import './components/scoreboard';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: $font-size;
+    color: $font-color;
+}
+
+.App {
+    @include flex(column, center, center);
+    color: $font-color;
+    font-family: 'Apercu', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(90deg, #262626 60%, #303030);
+
+    @media screen and (max-width:1070px) {
+        flex-direction: column;
+        background: linear-gradient(360deg, #262626 60%, #303030);
+        justify-content: center;
+    }
+}
+
+.replay {
+    margin: 0 auto;
+    text-align: center;
+
+    &__title {
+        position: absolute;
+        bottom: 50px;
+        right: 5%;
+    }
+
+    &__button {
+        background-color: transparent;
+        border: none;
+        font-size: 30px;
+        font-weight: 600;
+        color: #ffffff80;
+
+        position: relative;
+        transition: all 1ms ease-in-out;
+
+        cursor: pointer;
+
+        &::after {
+            content: '?';
+            position: absolute;
+            right: -25px;
+        }
+
+        &:hover {
+            color: #FFF;
+
+            &::after {
+                transition: all 0.3s ease-in-out;
+                content: '?';
+                position: absolute;
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.congrats {
+    margin: 0 auto;
+}

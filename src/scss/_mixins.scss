@@ -1,0 +1,16 @@
+@import 'vars';
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin line($height, $width) {
+    content: '';
+    width: $width;
+    height: $height;
+    background-color: $l-gold;
+    position: absolute;
+}

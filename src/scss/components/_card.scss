@@ -1,0 +1,50 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 180px;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+    border: 3px solid #FFF;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.329);
+
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+        border: 3px solid #ff0000;
+    }
+
+    &__img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        /* number of lines to show */
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+
+        margin-bottom: 10px;
+    }
+
+    @media screen and (max-width:1620px) {
+        width: 140px;
+    }
+
+    @media screen and (max-width:1275px) {
+        width: 120px;
+    }
+}
+
+.hide {
+    transform: scale(0);
+}

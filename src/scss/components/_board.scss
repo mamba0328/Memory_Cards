@@ -1,0 +1,50 @@
+.board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 15px;
+    padding: 0 12vw;
+
+    @media screen and (max-width:1620px) {
+        padding: 0 10vw;
+        column-gap: 20px;
+    }
+
+    @media screen and (max-width:1275px) {
+        padding: 0 6vw;
+        column-gap: 20px;
+    }
+
+    @media screen and (max-width:1070px) {
+        flex: 1;
+    }
+}
+
+@keyframes loading {
+    0% {}
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__img {
+        width: 100px;
+        height: 100px;
+        animation: 1s linear 0s infinite loading;
+    }
+}
