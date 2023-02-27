@@ -20,7 +20,7 @@ function App() {
   const getFetchData = () => {
     const ts = Math.round(Math.random() * 1000);
     const hash = MD5(ts + keys.private + keys.public).toString();
-    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${keys.public}!&hash=${hash}&events=238,330&offset=${offset}`)
+    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${keys.public}&hash=${hash}&events=238,330&offset=${offset}`)
       .then((res) => {
         if (res.ok) {
           return res.json()
