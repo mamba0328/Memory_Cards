@@ -4,6 +4,7 @@ import { keys } from './http/keys';
 import MD5 from "crypto-js/md5";
 import { Board } from './components/Board';
 import Scoreboard from './components/Scoreboard';
+import heroes from './components/_heroes';
 
 function App() {
   const [data, setData] = useState(null);
@@ -19,7 +20,7 @@ function App() {
   const getFetchData = () => {
     const ts = Math.round(Math.random() * 1000);
     const hash = MD5(ts + keys.private + keys.public).toString();
-    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${keys.public}&hash=${hash}&events=238,330&offset=${offset}`)
+    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${keys.public}!&hash=${hash}&events=238,330&offset=${offset}`)
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -27,10 +28,12 @@ function App() {
         throw new Error('No response from server')
       })
       .then((res) => {
-        setData(res.data);
+        setData(res.data.results);
+        console.log(res.data)
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+        console.log('Can\'t acces url, using backup data');
+        setData(heroes);
       });
   }
 

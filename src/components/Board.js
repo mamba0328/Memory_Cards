@@ -24,8 +24,8 @@ export function Board(props) {
         const newDeck = [];
         for (let i = 0; i < quantity; i++) {
             const card = {
-                name: data.results[i].name,
-                img: data.results[i].thumbnail.path + '/standard_xlarge.jpg',
+                name: data[i].name,
+                img: data[i].thumbnail.path + '/standard_xlarge.jpg',
                 clicked: 0,
                 id: uniqid(),
             };
